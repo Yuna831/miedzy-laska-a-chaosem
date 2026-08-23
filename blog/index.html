@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Blog | Yuna</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="./">Blog</a>
+        <a href="../o-mnie.html">O mnie</a>
+        <a href="../wiara.html">Wiara</a>
+        <a href="../milites-christi.html">Milites Christi</a>
+    </nav>
+</header>
+
+
+<main>
+
+    <!-- =========================
+         NAGŁÓWEK
+    ========================== -->
+
+    <section class="page-header">
+
+        <p class="section-label">
+            BLOG
+        </p>
+
+        <h1>Moje wpisy</h1>
+
+        <p>
+            Życie, wiara, przemyślenia i różne rzeczy,
+            które akurat siedzą mi w głowie.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         WYSZUKIWARKA
+    ========================== -->
+
+    <div class="blog-search">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Szukaj wpisu..."
+            autocomplete="off"
+        >
+
+    </div>
+
+
+    <!-- =========================
+         FILTRY
+    ========================== -->
+
+    <div class="blog-filters">
+
+        <button
+            type="button"
+            class="filter-btn active"
+            data-filter="all"
+        >
+            Wszystkie
+        </button>
+
+        <button
+            type="button"
+            class="filter-btn"
+            data-filter="zycie"
+        >
+            Życie
+        </button>
+
+        <button
+            type="button"
+            class="filter-btn"
+            data-filter="wiara"
+        >
+            Wiara
+        </button>
+
+        <button
+            type="button"
+            class="filter-btn"
+            data-filter="przemyslenia"
+        >
+            Przemyślenia
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         SORTOWANIE
+    ========================== -->
+
+    <div class="blog-sort">
+
+        <label for="sortSelect">
+            Sortuj:
+        </label>
+
+        <select id="sortSelect">
+
+            <option value="newest">
+                Najnowsze
+            </option>
+
+            <option value="oldest">
+                Najstarsze
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <!-- =========================
+         LICZNIK
+    ========================== -->
+
+    <p
+        id="resultsCount"
+        class="results-count"
+    ></p>
+
+
+    <!-- =========================
+         BRAK WYNIKÓW
+    ========================== -->
+
+    <p
+        id="noResults"
+        class="no-results"
+        hidden
+    >
+        Nie znaleziono żadnych wpisów.
+    </p>
+
+
+    <!-- =========================
+         LISTA WPISÓW
+    ========================== -->
+
+    <section class="blog-list">
+
+
+        <!-- =========================
+             ADONOŁ
+        ========================== -->
+
+        <article
+            class="blog-post"
+            data-category="zycie"
+            data-date="2026-08-23"
+        >
+
+            <img
+                class="post-thumb"
+                src="../images/pierwszywpis.png"
+                alt="Grafika do wpisu ADONOŁ"
+            >
+
+            <p class="post-category">
+                ŻYCIE
+            </p>
+
+            <p class="date">
+                23 sierpnia 2026
+            </p>
+
+            <h2>
+                ADONOŁ
+            </h2>
+
+            <p>
+                Pierwszy wpis na moim własnym blogu.
+                Jeszcze nie wiem dokładnie, czym stanie się to miejsce,
+                ale właśnie od czegoś zaczynam.
+            </p>
+
+            <a href="../pierwszy-wpis.html">
+                Czytaj dalej →
+            </a>
+
+        </article>
+
+
+        <!-- =========================
+             MOJA HISTORIA
+        ========================== -->
+
+        <article
+            class="blog-post"
+            data-category="zycie"
+            data-date="2026-08-23"
+        >
+
+            <p class="post-category">
+                ŻYCIE
+            </p>
+
+            <p class="date">
+                23 sierpnia 2026
+            </p>
+
+            <h2>
+                Moja Historia
+            </h2>
+
+            <p>
+                To mój pierwszy wpis na tym blogu.
+                Chciałabym wam opowiedzieć tutaj moją historię życia.
+                W tej historii zawarte są również świadectwa tego,
+                jak Bóg działał w moim życiu.
+            </p>
+
+            <a href="../mojahistoria.html">
+                Czytaj dalej →
+            </a>
+
+        </article>
+
+
+    </section>
+
+</main>
+
+
+<footer>
+    <p>
+        © 2026 Yuna
+    </p>
+</footer>
+
+
+<script>
+
+    /* =========================
+       ELEMENTY
+    ========================== */
+
+    const searchInput =
+        document.querySelector("#searchInput");
+
+    const filterButtons =
+        document.querySelectorAll(".filter-btn");
+
+    const blogPosts =
+        document.querySelectorAll(".blog-post");
+
+    const noResults =
+        document.querySelector("#noResults");
+
+    const resultsCount =
+        document.querySelector("#resultsCount");
+
+    const sortSelect =
+        document.querySelector("#sortSelect");
+
+    const blogList =
+        document.querySelector(".blog-list");
+
+
+    let selectedCategory = "all";
+
+
+    /* =========================
+       FILTROWANIE + WYSZUKIWANIE
+    ========================== */
+
+    function updatePosts() {
+
+        const searchText =
+            searchInput.value
+                .toLowerCase()
+                .trim();
+
+        let visiblePosts = 0;
+
+
+        blogPosts.forEach(post => {
+
+            const postCategory =
+                post.dataset.category;
+
+            const postText =
+                post.innerText.toLowerCase();
+
+
+            const categoryMatches =
+                selectedCategory === "all" ||
+                postCategory === selectedCategory;
+
+
+            const searchMatches =
+                postText.includes(searchText);
+
+
+            if (
+                categoryMatches &&
+                searchMatches
+            ) {
+
+                post.hidden = false;
+
+                visiblePosts++;
+
+            } else {
+
+                post.hidden = true;
+
+            }
+
+        });
+
+
+        /* BRAK WYNIKÓW */
+
+        noResults.hidden =
+            visiblePosts !== 0;
+
+
+        /* LICZNIK */
+
+        if (visiblePosts === 0) {
+
+            resultsCount.textContent =
+                "Brak wpisów";
+
+        }
+
+        else if (visiblePosts === 1) {
+
+            resultsCount.textContent =
+                "1 wpis";
+
+        }
+
+        else if (
+            visiblePosts >= 2 &&
+            visiblePosts <= 4
+        ) {
+
+            resultsCount.textContent =
+                `${visiblePosts} wpisy`;
+
+        }
+
+        else {
+
+            resultsCount.textContent =
+                `${visiblePosts} wpisów`;
+
+        }
+
+    }
+
+
+    /* =========================
+       PRZYCISKI KATEGORII
+    ========================== */
+
+    filterButtons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                filterButtons.forEach(btn => {
+
+                    btn.classList.remove(
+                        "active"
+                    );
+
+                });
+
+
+                button.classList.add(
+                    "active"
+                );
+
+
+                selectedCategory =
+                    button.dataset.filter;
+
+
+                updatePosts();
+
+            }
+        );
+
+    });
+
+
+    /* =========================
+       WYSZUKIWARKA
+    ========================== */
+
+    searchInput.addEventListener(
+        "input",
+        updatePosts
+    );
+
+
+    /* =========================
+       SORTOWANIE
+    ========================== */
+
+    function sortPosts() {
+
+        const postsArray =
+            Array.from(blogPosts);
+
+
+        postsArray.sort((a, b) => {
+
+            const dateA =
+                new Date(
+                    a.dataset.date
+                );
+
+            const dateB =
+                new Date(
+                    b.dataset.date
+                );
+
+
+            if (
+                sortSelect.value ===
+                "newest"
+            ) {
+
+                return dateB - dateA;
+
+            }
+
+
+            return dateA - dateB;
+
+        });
+
+
+        postsArray.forEach(post => {
+
+            blogList.appendChild(post);
+
+        });
+
+    }
+
+
+    sortSelect.addEventListener(
+        "change",
+        () => {
+
+            sortPosts();
+
+            updatePosts();
+
+        }
+    );
+
+
+    /* =========================
+       START
+    ========================== */
+
+    sortPosts();
+
+    updatePosts();
+
+</script>
+
+</body>
+
+</html>
