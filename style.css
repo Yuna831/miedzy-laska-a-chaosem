@@ -985,3 +985,167 @@ nav {
 
     font-size: 13px;
 }
+/* =========================
+   WYSZUKIWARKA
+========================= */
+
+.blog-search {
+    margin-bottom: 25px;
+}
+
+.blog-search input {
+    width: 100%;
+    max-width: 560px;
+
+    padding: 13px 18px;
+
+    background: var(--card);
+    color: var(--cream);
+
+    border: 1px solid var(--border);
+    border-radius: 999px;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+.blog-search input:focus {
+    border-color: var(--gold);
+}
+
+.blog-search input::placeholder {
+    color: var(--muted);
+}
+
+
+/* =========================
+   FILTRY
+========================= */
+
+.blog-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    padding: 9px 16px;
+
+    background: transparent;
+    color: var(--text);
+
+    border: 1px solid var(--border);
+    border-radius: 999px;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.filter-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold-light);
+}
+
+.filter-btn.active {
+    background: var(--gold);
+    color: #140f0c;
+
+    border-color: var(--gold);
+}
+
+
+/* =========================
+   SORTOWANIE
+========================= */
+
+.blog-sort {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin: 20px 0 18px;
+}
+
+.blog-sort label {
+    color: var(--muted);
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+}
+
+.blog-sort select {
+    padding: 9px 14px;
+
+    background: var(--card);
+    color: var(--cream);
+
+    border: 1px solid var(--border);
+    border-radius: 999px;
+
+    outline: none;
+    cursor: pointer;
+}
+
+.blog-sort select:focus {
+    border-color: var(--gold);
+}
+
+
+/* =========================
+   LICZNIK
+========================= */
+
+.results-count {
+    margin: 10px 0 25px;
+
+    color: var(--muted);
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+}
+
+
+/* =========================
+   BRAK WYNIKÓW
+========================= */
+
+.no-results {
+    padding: 35px;
+
+    margin: 20px 0 30px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    font-style: italic;
+}
+.post-thumb {
+    width: 100%;
+    max-width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+    border: 1px solid var(--border);
+
+    margin-bottom: 22px;
+
+    display: block;
+}
