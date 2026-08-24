@@ -1149,3 +1149,12 @@ nav {
 
     display: block;
 }
+.comments {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 50px 0 100px;
+}
+
+.comments h2 {
+    margin-bottom: 30px;
+}

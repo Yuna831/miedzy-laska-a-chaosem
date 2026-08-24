@@ -4,7 +4,9 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADONOŁ | Między łaską a chaosem</title>
+
+    <title>Moja Historia | Między łaską a chaosem</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,50 +14,64 @@
 
 <header>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="blog.html">Blog</a>
-        <a href="o-mnie.html">O mnie</a>
-        <a href="wiara.html">Wiara</a>
-        <a href="milites-christi.html">Milites Christi</a>
+        <a class="logo" href="./">Między łaską a chaosem</a>
+
+        <div class="nav-links">
+            <a href="./">Home</a>
+            <a href="blog/">Blog</a>
+            <a href="o-mnie/">O mnie</a>
+            <a href="wiara/">Wiara</a>
+            <a href="milites-christi/">Milites Christi</a>
+        </div>
     </nav>
 </header>
 
 <main>
 
-    <article class="single-post" data-category="zycie">
+    <article class="single-post">
 
-        <p class="section-label">BLOG</p>
+    <p class="section-label">BLOG</p>
 
-        <h1>ADONOŁ</h1>
+    <h1>Moja Historia</h1>
 
-        <p class="date">23 sierpnia 2026</p>
+    <p class="date">23 sierpnia 2026</p>
 
-        <img class="post-image" src="images\pierwszywpis.png" alt="Grafika do wpisu">
+    <p>
+        Tutaj zaczyna się pełna treść wpisu.
+    </p>
 
-        <p>
-            To jest jakby okej
-        </p>
+    <a class="back-link" href="blog/">
+        ← Wróć do bloga
+    </a>
 
-        <p>
-            nie wiem co
-        </p>
+</article>
 
-        <p>
-            abecadło
-        </p>
+    <section class="comments">
+        <p class="section-label">KOMENTARZE</p>
+        <h2>Zostaw komentarz</h2>
 
-        <p>
-            Więc... witaj na początku tego wszystkiego.
-        </p>
-
-        <a class="back-link" href="blog.html">← Wróć do bloga</a>
-
-    </article>
+        <script src="https://giscus.app/client.js"
+                data-repo="Yuna831/miedzy-laska-a-chaosem"
+                data-repo-id="R_kgDOUB5iYw"
+                data-category="General"
+                data-category-id="DIC_kwDOUB5iY84DEEwG"
+                data-mapping="pathname"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="bottom"
+                data-theme="gruvbox"
+                data-lang="pl"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async>
+        </script>
+    </section>
 
 </main>
 
 <footer>
-    <p>© 2026 Yuna</p>
+    <p>© 2026 Między łaską a chaosem</p>
 </footer>
 
 </body>
