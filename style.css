@@ -337,7 +337,7 @@ p {
 }
 
 .page-header::after {
-    content: "✦";
+    content: "";
 
     position: absolute;
 
@@ -450,16 +450,30 @@ p {
 }
 
 .verse-box::before {
-    content: "✝";
+    content: "";
 
     position: absolute;
 
-    right: 25px;
-    top: 15px;
+    right: 28px;
+    top: 22px;
 
-    color: rgba(200, 169, 107, 0.12);
+    width: 48px;
+    height: 70px;
 
-    font-size: 80px;
+    background:
+        linear-gradient(
+            var(--gold),
+            var(--gold)
+        ) center / 7px 100% no-repeat,
+
+        linear-gradient(
+            var(--gold),
+            var(--gold)
+        ) center 35% / 100% 7px no-repeat;
+
+    opacity: 0.13;
+
+    pointer-events: none;
 }
 
 .verse-box blockquote {
@@ -1401,9 +1415,19 @@ nav {
     }
 }
 .section-label::before {
-    content: "✝";
-    margin-right: 8px;
-    color: var(--gold);
+    content: "";
+
+    display: inline-block;
+
+    width: 7px;
+    height: 7px;
+
+    margin-right: 12px;
+    margin-bottom: 1px;
+
+    background: var(--gold);
+
+    transform: rotate(45deg);
 }
 .section-divider {
     width: 100%;
@@ -1558,7 +1582,7 @@ h2::after {
 ========================= */
 
 .decorated-link::before {
-    content: "✦";
+    content: "";
 
     margin-right: 8px;
 
@@ -1607,7 +1631,7 @@ h2::after {
 ========================= */
 
 .heading-dot::before {
-    content: "✦";
+    content: "";
 
     display: block;
 
@@ -1846,8 +1870,7 @@ h2::after {
 
 }
 .hero::before {
-    content: "\271D\FE0E";
-    font-family: Georgia, "Times New Roman", serif;
+    content: "";
 
     position: absolute;
     right: 5%;
@@ -1855,9 +1878,73 @@ h2::after {
 
     transform: translateY(-50%);
 
-    font-size: clamp(130px, 20vw, 240px);
+    width: 130px;
+    height: 190px;
 
-    color: rgba(200, 169, 107, 0.035);
+    background:
+        linear-gradient(
+            var(--gold),
+            var(--gold)
+        ) center / 20px 100% no-repeat,
+
+        linear-gradient(
+            var(--gold),
+            var(--gold)
+        ) center 35% / 100% 20px no-repeat;
+
+    opacity: 0.045;
 
     pointer-events: none;
+}
+@media (max-width: 650px) {
+
+    .hero::before {
+        width: 75px;
+        height: 110px;
+
+        right: 5px;
+
+        background:
+            linear-gradient(
+                var(--gold),
+                var(--gold)
+            ) center / 11px 100% no-repeat,
+
+            linear-gradient(
+                var(--gold),
+                var(--gold)
+            ) center 35% / 100% 11px no-repeat;
+
+        opacity: 0.06;
+    }
+
+}
+.verse-symbol {
+    display: block;
+
+    width: 9px;
+    height: 9px;
+
+    margin-bottom: 15px;
+
+    background: var(--gold);
+
+    transform: rotate(45deg);
+}
+.cross-divider span {
+    width: 13px;
+    height: 20px;
+
+    background:
+        linear-gradient(
+            var(--gold),
+            var(--gold)
+        ) center / 3px 100% no-repeat,
+
+        linear-gradient(
+            var(--gold),
+            var(--gold)
+        ) center 35% / 100% 3px no-repeat;
+
+    opacity: 0.8;
 }
