@@ -1400,3 +1400,274 @@ nav {
         height: auto;
     }
 }
+.section-label::before {
+    content: "✝";
+    margin-right: 8px;
+    color: var(--gold);
+}
+.section-divider {
+    width: 100%;
+    max-width: 220px;
+    height: 1px;
+
+    margin: 55px auto;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(200, 169, 107, 0.8),
+        transparent
+    );
+}
+.favorite-verse,
+.patron-card,
+.home-post,
+.blog-post {
+    position: relative;
+    overflow: hidden;
+}
+
+.favorite-verse::before,
+.patron-card::before,
+.home-post::before,
+.blog-post::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 36px;
+    height: 36px;
+
+    border-top: 1px solid rgba(200, 169, 107, 0.55);
+    border-left: 1px solid rgba(200, 169, 107, 0.55);
+
+    border-top-left-radius: 12px;
+}
+.favorite-verse::after,
+.patron-card::after,
+.home-post::after,
+.blog-post::after {
+    content: "";
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    width: 36px;
+    height: 36px;
+
+    border-bottom: 1px solid rgba(200, 169, 107, 0.35);
+    border-right: 1px solid rgba(200, 169, 107, 0.35);
+
+    border-bottom-right-radius: 12px;
+}
+h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 22px;
+}
+
+h2::after {
+    content: "";
+
+    display: block;
+
+    width: 70px;
+    height: 2px;
+
+    margin-top: 10px;
+
+    background: linear-gradient(
+        to right,
+        var(--gold),
+        transparent
+    );
+
+    border-radius: 999px;
+}
+/* =========================
+   DELIKATNY ZŁOTY BLASK TEKSTU
+========================= */
+
+.gold-glow {
+    color: var(--gold-light);
+
+    text-shadow:
+        0 0 10px rgba(200, 169, 107, 0.15);
+}
+
+
+/* =========================
+   OZDOBNY SYMBOL NAD SEKCJĄ
+========================= */
+
+.section-ornament {
+    text-align: center;
+
+    margin: 35px 0 20px;
+
+    color: var(--gold);
+
+    font-size: 18px;
+
+    letter-spacing: 10px;
+}
+
+
+/* =========================
+   DELIKATNY ZŁOTY GLOW KART
+========================= */
+
+.soft-gold-card {
+    border: 1px solid rgba(200, 169, 107, 0.25);
+
+    box-shadow:
+        0 0 30px rgba(200, 169, 107, 0.04),
+        inset 0 0 25px rgba(200, 169, 107, 0.02);
+}
+
+
+/* =========================
+   OZDOBNY KRZYŻ W TLE
+========================= */
+
+.cross-background {
+    position: relative;
+}
+
+.cross-background::after {
+    content: "✝";
+
+    position: absolute;
+
+    right: 25px;
+    bottom: 10px;
+
+    font-size: 95px;
+
+    color: rgba(200, 169, 107, 0.045);
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   ZŁOTA KROPKA PRZY LINKACH
+========================= */
+
+.decorated-link::before {
+    content: "✦";
+
+    margin-right: 8px;
+
+    color: var(--gold);
+
+    font-size: 10px;
+}
+
+
+/* =========================
+   ZŁOTY CYTAT
+========================= */
+
+.quote-gold {
+    position: relative;
+
+    margin: 40px 0;
+
+    padding: 25px 30px;
+
+    border-left: 2px solid var(--gold);
+
+    background: rgba(200, 169, 107, 0.035);
+
+    border-radius: 0 14px 14px 0;
+}
+
+.quote-gold::before {
+    content: "“";
+
+    position: absolute;
+
+    top: -15px;
+    left: 15px;
+
+    font-size: 70px;
+
+    color: rgba(200, 169, 107, 0.18);
+
+    font-family: Georgia, serif;
+}
+
+
+/* =========================
+   MAŁY ZŁOTY PUNKT NAD NAGŁÓWKIEM
+========================= */
+
+.heading-dot::before {
+    content: "✦";
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--gold);
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   OZDOBNA LINIA Z KRZYŻEM
+========================= */
+
+.cross-divider {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    max-width: 320px;
+
+    margin: 55px auto;
+}
+
+.cross-divider::before,
+.cross-divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(200, 169, 107, 0.55)
+    );
+}
+
+.cross-divider::after {
+    background: linear-gradient(
+        to left,
+        transparent,
+        rgba(200, 169, 107, 0.55)
+    );
+}
+
+.cross-divider span {
+    color: var(--gold);
+
+    font-size: 16px;
+}
+/* Mniejsza przerwa na stronie O mnie */
+
+.about-page {
+    padding-top: 40px !important;
+}
+
+.about-page h2:first-child {
+    margin-top: 0;
+}
