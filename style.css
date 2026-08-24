@@ -1188,3 +1188,215 @@ nav {
 .social-links a:hover {
     color: var(--cream);
 }
+/* =========================
+   ULUBIONE WERSETY
+========================= */
+
+.favorite-verses {
+    display: grid;
+    gap: 22px;
+
+    margin-top: 35px;
+}
+
+.favorite-verse {
+    position: relative;
+
+    padding: 30px 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(37, 28, 22, 0.9),
+            rgba(22, 17, 14, 0.9)
+        );
+
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--gold);
+
+    border-radius: 16px;
+}
+
+.verse-symbol {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--gold);
+
+    font-size: 16px;
+}
+
+.favorite-verse blockquote {
+    margin: 0;
+
+    color: var(--cream);
+
+    font-size: 21px;
+    line-height: 1.6;
+
+    font-style: italic;
+}
+
+.verse-reference {
+    margin: 15px 0 0;
+
+    color: var(--gold-light) !important;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px !important;
+
+    letter-spacing: 1px;
+}
+
+
+/* TELEFON */
+
+@media (max-width: 650px) {
+
+    .favorite-verse {
+        padding: 25px;
+    }
+
+    .favorite-verse blockquote {
+        font-size: 18px;
+    }
+
+}
+/* =========================
+   MOJA PATRONKA
+========================= */
+
+.patron-card {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+
+    gap: 25px;
+
+    align-items: center;
+
+    margin-top: 30px;
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(37, 28, 22, 0.9),
+            rgba(22, 17, 14, 0.9)
+        );
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+}
+
+.patron-symbol {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 80px;
+    height: 80px;
+
+    border-radius: 50%;
+
+    border: 1px solid var(--gold);
+
+    color: var(--gold);
+
+    font-size: 36px;
+}
+
+.patron-content h3 {
+    margin: 0 0 10px;
+
+    color: var(--gold-light);
+
+    font-size: 28px;
+}
+
+.patron-content p {
+    margin: 8px 0;
+}
+
+.patron-note {
+    color: var(--muted) !important;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px !important;
+}
+
+@media (max-width: 650px) {
+
+    .patron-card {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* =========================
+   MOJA PATRONKA
+========================= */
+
+.patron-card {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+
+    gap: 28px;
+    align-items: center;
+
+    margin-top: 30px;
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(37, 28, 22, 0.9),
+            rgba(22, 17, 14, 0.9)
+        );
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+}
+
+.patron-image {
+    width: 140px;
+    height: 180px;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+    border: 1px solid var(--gold);
+
+    display: block;
+}
+
+.patron-content h3 {
+    margin: 0 0 10px;
+
+    color: var(--gold-light);
+
+    font-size: 28px;
+}
+
+.patron-content p {
+    margin: 8px 0;
+}
+
+.patron-note {
+    color: var(--muted) !important;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px !important;
+}
+
+@media (max-width: 700px) {
+    .patron-card {
+        grid-template-columns: 1fr;
+    }
+
+    .patron-image {
+        width: 100%;
+        max-width: 220px;
+        height: auto;
+    }
+}
