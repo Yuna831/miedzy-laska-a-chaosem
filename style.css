@@ -1700,3 +1700,164 @@ h2::after {
         height: 120px;
     }
 }
+/* =========================
+   LEPSZY MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    main {
+        padding: 0 20px;
+    }
+
+    /* MENU */
+
+    nav {
+        justify-content: center;
+        gap: 16px;
+        padding: 16px 12px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: auto;
+        padding: 60px 0 45px;
+    }
+
+    .hero h1 {
+        font-size: clamp(44px, 14vw, 68px);
+        line-height: 0.95;
+        margin: 12px 0 24px;
+    }
+
+    .intro {
+        max-width: 100%;
+        font-size: 18px;
+        line-height: 1.7;
+    }
+
+    .eyebrow {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
+    /* wielki krzyż w tle */
+    .hero::before {
+        font-size: 95px;
+        right: -10px;
+        top: 52%;
+        opacity: 0.35;
+    }
+
+
+    /* CYTAT */
+
+    .hero-quote {
+        margin-top: 35px;
+        padding-left: 18px;
+        max-width: 100%;
+    }
+
+    .hero-quote p {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+
+    /* BUTTON */
+
+    .button {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+
+    /* SEKCJE */
+
+    section:not(.hero) {
+        padding: 55px 0;
+    }
+
+    .section-heading {
+        display: block;
+    }
+
+
+    /* KARTY WPISÓW */
+
+    .home-posts {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .home-post {
+        padding: 22px;
+    }
+
+    .home-post h3 {
+        font-size: 26px;
+    }
+
+    .post-thumb {
+        aspect-ratio: 16 / 10;
+    }
+
+
+    /* O MNIE NA HOME */
+
+    .home-about {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .home-about-photo {
+        width: 120px;
+        height: 120px;
+    }
+
+
+    /* MILITES */
+
+    .milites {
+        margin: 40px 0;
+        padding: 28px !important;
+    }
+
+
+    /* FOOTER */
+
+    .site-footer {
+        padding: 35px 20px;
+    }
+
+    .social-links {
+        gap: 14px;
+    }
+
+}
+.hero::before {
+    content: "\271D\FE0E";
+    font-family: Georgia, "Times New Roman", serif;
+
+    position: absolute;
+    right: 5%;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: clamp(130px, 20vw, 240px);
+
+    color: rgba(200, 169, 107, 0.035);
+
+    pointer-events: none;
+}
