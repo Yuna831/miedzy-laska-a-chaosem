@@ -205,6 +205,37 @@
     </div>
 
 </footer>
+<script>
+    const triggerButtons = document.querySelectorAll(".tw-badge");
 
+    triggerButtons.forEach(button => {
+
+        button.addEventListener("click", event => {
+
+            event.stopPropagation();
+
+            const wasOpen =
+                button.classList.contains("open");
+
+            triggerButtons.forEach(btn => {
+                btn.classList.remove("open");
+            });
+
+            if (!wasOpen) {
+                button.classList.add("open");
+            }
+
+        });
+
+    });
+
+    document.addEventListener("click", () => {
+
+        triggerButtons.forEach(button => {
+            button.classList.remove("open");
+        });
+
+    });
+</script>
 </body>
 </html>
