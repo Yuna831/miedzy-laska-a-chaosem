@@ -1953,32 +1953,35 @@ h2::after {
 ========================= */
 
 .trigger-warning {
-    margin: 35px 0 45px;
-    padding: 28px 30px;
+    margin: 55px 0 65px;
+    padding: 48px 52px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(70, 18, 18, 0.82),
-            rgba(35, 12, 12, 0.95)
+            rgba(92, 22, 22, 0.94),
+            rgba(42, 12, 12, 0.99)
         );
 
-    border: 1px solid rgba(180, 60, 60, 0.55);
-    border-left: 4px solid #b84a4a;
+    border: 1px solid rgba(210, 80, 80, 0.75);
+    border-left: 6px solid #cf5656;
 
-    border-radius: 16px;
+    border-radius: 20px;
+
+    box-shadow:
+        0 0 36px rgba(180, 40, 40, 0.10);
 }
 
 .trigger-title {
-    margin: 0 0 10px;
+    margin: 0 0 20px;
 
-    color: #e7b0b0 !important;
+    color: #f3bbbb !important;
 
     font-family: Arial, sans-serif;
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 800;
 
-    letter-spacing: 3px;
+    letter-spacing: 4px;
 }
 
 .trigger-text {
@@ -1986,22 +1989,212 @@ h2::after {
 
     color: var(--cream) !important;
 
-    font-size: 18px;
-    line-height: 1.6;
+    font-size: 24px;
+    line-height: 1.75;
 }
 
 .trigger-text strong {
-    color: #f0c2c2;
+    color: #f8c7c7;
 }
 
 @media (max-width: 650px) {
 
     .trigger-warning {
-        padding: 22px;
-        margin: 28px 0 36px;
+        padding: 34px 28px;
+        margin: 40px 0 50px;
+    }
+
+    .trigger-title {
+        font-size: 17px;
+        letter-spacing: 3px;
     }
 
     .trigger-text {
+        font-size: 20px;
+        line-height: 1.65;
+    }
+}
+.trigger-icon {
+    width: 58px;
+    height: 58px;
+
+    margin-bottom: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #cf5656;
+    border-radius: 50%;
+
+    background: rgba(207, 86, 86, 0.08);
+
+    box-shadow:
+        0 0 20px rgba(207, 86, 86, 0.12);
+}
+
+.trigger-icon span {
+    color: #f3bbbb;
+
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+
+    line-height: 1;
+}
+
+@media (max-width: 650px) {
+    .trigger-icon {
+        width: 50px;
+        height: 50px;
+
+    }
+
+    .trigger-icon span {
+        font-size: 26px;
+    }
+}
+.cdn {
+    margin: 70px 0 30px;
+
+    text-align: center;
+
+    color: var(--gold-light);
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 42px;
+    font-weight: 700;
+
+    letter-spacing: 8px;
+
+    opacity: 0.9;
+}
+@media (max-width: 650px) {
+    .cdn {
+        margin-top: 55px;
+        font-size: 32px;
+        letter-spacing: 6px;
+    }
+}
+/* =========================
+   TRIGGER WARNING PRZY WPISACH
+========================= */
+
+.post-title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.post-title-row h2 {
+    margin: 0;
+}
+
+.tw-badge {
+    position: relative;
+
+    width: 30px;
+    height: 30px;
+
+    flex-shrink: 0;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 2px solid #cf5656;
+    border-radius: 50%;
+
+    background: rgba(207, 86, 86, 0.08);
+
+    color: #f3bbbb;
+
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.tw-badge:hover,
+.tw-badge:focus {
+    background: rgba(207, 86, 86, 0.18);
+    border-color: #e06a6a;
+}
+
+.tw-tooltip {
+    position: absolute;
+
+    right: 0;
+    left: auto;
+
+    bottom: calc(100% + 12px);
+
+    transform: none;
+
+    width: 260px;
+
+    padding: 14px 16px;
+
+    background: #2b1212;
+
+    border: 1px solid rgba(207, 86, 86, 0.65);
+    border-radius: 12px;
+
+    color: var(--cream);
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5;
+
+    text-align: left;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition: 0.2s;
+
+    z-index: 50;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.tw-badge:hover .tw-tooltip,
+.tw-badge:focus .tw-tooltip,
+.tw-badge:focus-visible .tw-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+@media (max-width: 650px) {
+
+    .post-title-row {
+        align-items: flex-start;
+    }
+
+    .tw-badge {
+        width: 28px;
+        height: 28px;
         font-size: 16px;
+    }
+
+    .tw-tooltip {
+        top: calc(100% + 10px);
+        bottom: auto;
+
+        right: 0;
+        left: auto;
+
+        transform: none;
+
+        width: min(240px, 75vw);
+
+        white-space: normal;
     }
 }
