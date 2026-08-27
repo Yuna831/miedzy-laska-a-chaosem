@@ -2197,3 +2197,7 @@ h2::after {
         white-space: normal;
     }
 }
+.person-initial {
+    font-weight: 700;
+    color: var(--gold-light);
+}
