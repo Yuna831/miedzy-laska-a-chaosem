@@ -189,37 +189,53 @@
     <!-- =========================
          KOMENTARZE
     ========================== -->
+<section class="comments-section">
 
-    <section class="comments">
+    <p class="section-label">
+        KOMENTARZE
+    </p>
 
-        <p class="section-label">
-            KOMENTARZE
-        </p>
+    <h2>
+        Zostaw komentarz
+    </h2>
 
-        <h2>
-            Zostaw komentarz
-        </h2>
+    <form id="commentForm" class="comment-form">
 
-
-        <script
-            src="https://giscus.app/client.js"
-            data-repo="Yuna831/miedzy-laska-a-chaosem"
-            data-repo-id="R_kgDOUB5iYw"
-            data-category="General"
-            data-category-id="DIC_kwDOUB5iY84DEEwG"
-            data-mapping="pathname"
-            data-strict="0"
-            data-reactions-enabled="1"
-            data-emit-metadata="0"
-            data-input-position="bottom"
-            data-theme="gruvbox"
-            data-lang="pl"
-            crossorigin="anonymous"
-            async
+        <input
+            type="text"
+            id="commentNickname"
+            placeholder="Twój nick"
+            maxlength="40"
+            required
         >
-        </script>
 
-    </section>
+        <textarea
+            id="commentContent"
+            placeholder="Napisz komentarz..."
+            maxlength="2000"
+            required
+        ></textarea>
+
+        <button type="submit">
+            Dodaj komentarz
+        </button>
+
+        <p id="commentMessage"></p>
+
+    </form>
+
+
+    <div class="comments-list">
+
+        <h3>
+            Komentarze
+        </h3>
+
+        <div id="commentsContainer"></div>
+
+    </div>
+
+</section>
 
 </main>
 
@@ -257,6 +273,211 @@
     </div>
 
 </footer>
+
+<script>
+
+    const COMMENTS_API =
+        "https://blog-comments.jola-siem1234.workers.dev";
+
+    const ARTICLE_ID =
+        window.location.pathname;
+
+
+    const commentForm =
+        document.querySelector("#commentForm");
+
+    const commentNickname =
+        document.querySelector("#commentNickname");
+
+    const commentContent =
+        document.querySelector("#commentContent");
+
+    const commentMessage =
+        document.querySelector("#commentMessage");
+
+    const commentsContainer =
+        document.querySelector("#commentsContainer");
+
+
+    async function loadComments() {
+
+        try {
+
+            const response =
+                await fetch(
+                    `${COMMENTS_API}/comments?article=${encodeURIComponent(ARTICLE_ID)}`
+                );
+
+            const comments =
+                await response.json();
+
+
+            commentsContainer.innerHTML = "";
+
+
+            if (comments.length === 0) {
+
+                commentsContainer.innerHTML =
+                    `<p class="no-comments">
+                        Brak komentarzy. Bądź pierwszy!
+                    </p>`;
+
+                return;
+
+            }
+
+
+            comments.forEach(comment => {
+
+                const div =
+                    document.createElement("div");
+
+                div.className =
+                    "comment-item";
+
+
+                const nickname =
+                    document.createElement("strong");
+
+                nickname.textContent =
+                    comment.nickname;
+
+
+                const date =
+                    document.createElement("span");
+
+                date.className =
+                    "comment-date";
+
+                date.textContent =
+                    new Date(
+                        comment.created_at + "Z"
+                    ).toLocaleString(
+                        "pl-PL"
+                    );
+
+
+                const content =
+                    document.createElement("p");
+
+                content.textContent =
+                    comment.content;
+
+
+                div.appendChild(
+                    nickname
+                );
+
+                div.appendChild(
+                    date
+                );
+
+                div.appendChild(
+                    content
+                );
+
+
+                commentsContainer.appendChild(
+                    div
+                );
+
+            });
+
+        }
+
+        catch {
+
+            commentsContainer.innerHTML =
+                `<p class="no-comments">
+                    Nie udało się załadować komentarzy.
+                </p>`;
+
+        }
+
+    }
+
+
+    commentForm.addEventListener(
+        "submit",
+        async event => {
+
+            event.preventDefault();
+
+
+            commentMessage.textContent =
+                "Wysyłanie...";
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        `${COMMENTS_API}/comments`,
+                        {
+                            method:
+                                "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body:
+                                JSON.stringify({
+                                    article:
+                                        ARTICLE_ID,
+
+                                    nickname:
+                                        commentNickname.value,
+
+                                    content:
+                                        commentContent.value
+                                })
+                        }
+                    );
+
+
+                const result =
+                    await response.json();
+
+
+                if (!response.ok) {
+
+                    commentMessage.textContent =
+                        result.error ||
+                        "Nie udało się wysłać komentarza.";
+
+                    return;
+
+                }
+
+
+                commentMessage.textContent =
+                    result.message;
+
+
+                commentNickname.value =
+                    "";
+
+                commentContent.value =
+                    "";
+
+            }
+
+            catch {
+
+                commentMessage.textContent =
+                    "Nie udało się połączyć z serwerem.";
+
+            }
+
+        }
+    );
+
+
+    loadComments();
+
+</script>
 
 </body>
 
