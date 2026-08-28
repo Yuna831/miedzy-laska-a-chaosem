@@ -2201,3 +2201,29 @@ h2::after {
     font-weight: 700;
     color: var(--gold-light);
 }
+.cdn {
+    display: block;
+
+    margin: 70px 0 30px;
+
+    text-align: center;
+
+    color: var(--gold-light);
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 42px;
+    font-weight: 700;
+
+    letter-spacing: 8px;
+
+    text-decoration: none;
+
+    opacity: 0.9;
+
+    transition: 0.2s;
+}
+
+.cdn:hover {
+    color: var(--cream);
+    opacity: 1;
+}
